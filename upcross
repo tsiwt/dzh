@@ -1,0 +1,27 @@
+nh:=hhv(h,MD);
+nl:=llv(l,MD);
+nrange:=nh/nl-1.0;
+upcross:=0;
+dncross:=0;
+mid:=(nh+nl)/2;
+kk:=0;
+for i = 0 to MD-1 do begin
+ 
+	if(ref(c,i)>mid and ref(c,i+1)<mid) 
+   then    upcross:=upcross+1;
+   
+  
+  if(ref(c,i)<mid and ref(c,i+1)>mid)
+   then      dncross:= dncross+1;
+            end
+
+
+cond:= upcross=3;
+
+
+{cond:= upcross=1 and dncross=2 and nrange>0.3;}
+{cond:= upcross=2 and dncross=1 and nrange>0.3;}
+{cond:= upcross+dncross>=7;  }
+
+
+ref(cond, ND);
